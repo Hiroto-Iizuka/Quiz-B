@@ -64,10 +64,14 @@
     titleNode.textContent = '取得中';
     questionNode.textContent = '少々お待ち下さい';
     
-    const response = await fetch(QUIZ_API);
-    const quizData = await response.json();
-    const quizInstance = new Quiz(quizData);
-    
+    try {
+      const response = await fetch(QUIZ_API);
+      const quizData = await response.json();
+      const quizInstance = new Quiz(quizData);  
+    } catch(err) {
+      alert(err);
+    }
+
     setNextQuiz(quizInstance, index);
   }
 
