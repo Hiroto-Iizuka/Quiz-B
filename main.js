@@ -68,11 +68,10 @@
       const response = await fetch(QUIZ_API);
       const quizData = await response.json();
       const quizInstance = new Quiz(quizData);  
+      setNextQuiz(quizInstance, index);
     } catch(err) {
       alert(err);
     }
-
-    setNextQuiz(quizInstance, index);
   }
 
   // 次のクイズを表示
